@@ -1,0 +1,315 @@
+/* src/ToDoList.css */
+
+body {
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-list {
+  width: 90%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.todo-list h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+.todo-list .today-date {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #555;
+}
+
+.todo-list .task-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-right: 12px; /* Add padding to the right */
+}
+
+.todo-list input[type="text"],
+.todo-list input[type="date"],
+.todo-list select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: box-shadow 0.2s;
+}
+
+.todo-list input[type="text"]:focus,
+.todo-list input[type="date"]:focus,
+.todo-list select:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+.todo-list button {
+  width: 20%;
+  padding: 12px;
+  border: none;
+  background: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.todo-list button:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+.todo-list .filters {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+  padding-right: 12px; /* Add padding to the right */
+}
+
+.todo-list .filters input[type="text"],
+.todo-list .filters select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: box-shadow 0.2s;
+}
+
+.todo-list .filters input[type="text"]:focus,
+.todo-list .filters select:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+.todo-list ul {
+  list-style: none;
+  padding: 0;
+  max-height: 300px; /* Set a fixed height */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.todo-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.todo-list li.completed span {
+  text-decoration: line-through;
+}
+
+.todo-list li span {
+  flex-grow: 1;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+.todo-list li .due-date,
+.todo-list li .completion-date {
+  margin-left: 10px;
+  font-size: 0.9em;
+  color: #888;
+}
+
+.todo-list li button {
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 70px; /* Fixed width */
+  text-align: center;
+}
+
+.todo-list li .edit-btn {
+  background: #ffc107;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.todo-list li .edit-btn:hover {
+  background: #e0a800;
+}
+
+.todo-list li .remove-btn {
+  background: #dc3545;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.todo-list li .remove-btn:hover {
+  background: #c82333;
+}
+
+/* Priority-based coloring */
+.todo-list li.low {
+  border-left: 4px solid #28a745;
+}
+
+.todo-list li.medium {
+  border-left: 4px solid #ffc107;
+}
+
+.todo-list li.high {
+  border-left: 4px solid #dc3545;
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .todo-list {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .todo-list h2 {
+    font-size: 22px;
+  }
+
+  .todo-list .today-date {
+    font-size: 16px;
+  }
+
+  .todo-list input[type="text"],
+  .todo-list input[type="date"],
+  .todo-list select,
+  .todo-list button {
+    font-size: 14px;
+  }
+
+  .todo-list .filters input[type="text"],
+  .todo-list .filters select {
+    font-size: 14px;
+  }
+}
+
+.required {
+  color: red;
+  margin-left: 3px;
+}
+/* no work */
+.current-time {
+  text-align: center;
+  font-size: 18px;
+  color: #555; /* Change color to gray */
+  margin-bottom: 20px;
+}
+
+.current-time span {
+  font-weight: bold;
+  color: #333; /* Change color to dark gray */
+}
+.current-time-box {
+  width: fit-content;
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-right: 10px;
+  background-color: #f0f0f0; /* Light background color */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth effect */
+  transform: translate(2px, 2px); /* Move the box slightly for 3D effect */
+}
+
+.current-time {
+  font-size: 18px;
+  color: #333;
+}
+
+.current-date {
+  font-size: 18px;
+  color: #333;
+  white-space: nowrap; /* Prevent line breaks */
+}
+.current-date-box {
+  width: fit-content;
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-right: 10px;
+  background-color: #f0f0f0; /* Light background color */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth effect */
+  transform: translate(2px, 2px); /* Move the box slightly for 3D effect */
+}
+/* no work */
+
+/* ToDoList.css */
+
+.date-time-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.date-box,
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-right: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.current-day,
+.current-time {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.current-date,
+.current-time {
+  font-size: 18px;
+  color: #333;
+}
+.date-box:hover,
+.time-box:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* .date-box:hover {
+  border-color: #f81717;
+}
+
+.time-box:hover {
+ border-color: #f91ba4; 
+} 
+ */
